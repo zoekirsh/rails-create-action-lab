@@ -12,8 +12,8 @@
 
 ## Notes
 
-build a new/create action for a new blog post
+build a new/create action for a new student
 
-posts#index should link to new_post_path
+studnets#index should link to new_student_path
 
-posts#new and form.html.erb posts#create makes a new post posts#create redirects to posts show
+students#new and form.html.erb students#create makes a new student studnets#create redirects to students show
