@@ -7,11 +7,11 @@ describe 'Route to view' do
   end
 end
 
-describe 'Multiple students are shown' do
-  let(:index_page_student) { FactoryGirl.create(:student) }
+describe 'Multiple students' do
+  it 'shows them on the index page' do
+    Student.create!(first_name: "Daenerys", last_name: "Targaryen")
+    Student.create!(first_name: "Lindsey", last_name: "Stirling")
 
-  it 'on the index page' do
-    FactoryGirl.create(:second_student)
     visit students_path
     expect(page).to have_content(/Daenerys|Lindsey/)
   end
@@ -47,28 +47,30 @@ describe 'form page' do
 end
 
 describe 'Show page' do
-  let(:show_page_student) { FactoryGirl.create(:student) }
+  before do
+    @student = Student.create!(first_name: "Daenerys", last_name: "Targaryen")
+  end
 
   it 'renders properly' do
-    visit student_path(show_page_student)
+    visit student_path(@student)
     expect(page.status_code).to eq(200)
   end
 
   it 'renders the first name in a h1 tag' do
-    visit student_path(show_page_student)
+    visit student_path(@student)
     expect(page).to have_css("h1", text: "Daenerys")
   end
 
   it 'renders the last name in a h1 tag' do
-    visit student_path(show_page_student)
+    visit student_path(@student)
     expect(page).to have_css("h1", text: "Targaryen")
   end
 end
 
 describe 'linking from the index page to the show page' do
-  it 'index page links to student page' do
-    linked_student = FactoryGirl.create(:student)
+  it 'index page links to post page' do
+    @student = Student.create!(first_name: "Daenerys", last_name: "Targaryen")
     visit students_path
-    expect(page).to have_link(linked_student.to_s, href: student_path(linked_student))
+    expect(page).to have_link(@student.to_s, href: student_path(@student))
   end
 end
