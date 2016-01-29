@@ -34,3 +34,4 @@ Make sure to use a route helper method to redirect to the `student` `show` page 
 * [Reading](https://github.com/learn-co-curriculum/rails-create-action-readme)
 
 * [Documentation](http://api.rubyonrails.org/classes/ActiveRecord/Persistence/ClassMethods.html)
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-create-action-lab' title='Create Action Lab'>Create Action Lab</a> on Learn.co and start learning to code for free.</p>
